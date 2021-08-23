@@ -24,6 +24,18 @@ async def on_message(message):
 	if message.author == client.user:
 		return
 	if message.content.startswith('!sbprices'):
-		await message.channel.send('Prices!')
+		pList = getPriceList()
+		if len(pList) > 0:
+			ores = "\n".join(list(map(lambda x: x[0], pList)))
+			prices = "\n".join(list(map(lambda x: x[1], pList)))
+			available = "\n".join(list(map(lambda x: x[2], pList)))
+			embed=discord.Embed(title="Current Starbase Auction Prices", color=0xff2626)
+			embed.add_field(name="Ore", value=ores, inline=True)
+			embed.add_field(name="Price", value=prices, inline=True)
+			embed.add_field(name="Available", value=available, inline=True)
+			embed.set_footer(text="From starbase.auction/livefeed.txt")
+			await message.channel.send(embed=embed)
+		else:
+			message.channel.send("No prices found :(")
 
 client.run(os.getenv('DISCORD_TOKEN'))
