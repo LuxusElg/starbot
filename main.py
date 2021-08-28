@@ -32,12 +32,12 @@ async def on_message(message):
 		pList = getPriceList()
 		oList = ['Kutonium', 'Arkanium', 'Valkite', 'Nhurgite', 'Karnite','Vokarium','Charodium','Ajatite','Bastium','Exorium','Aegisium','Ice','Ymrite','Surtrite','Corazium']
 		if len(pList) > 0:
-			ores = "\n".join(list(map(lambda x: x[0], oList)))
-			prices = "\n".join(list(map(lambda x: x[1], pList)))
+			ores = "\n".join(oList)
+			prices = "\n".join(pList)
 			embed=discord.Embed(title="Current Starbase Auction Prices", color=0xff2626)
 			embed.add_field(name="Ore", value=ores, inline=True)
 			embed.add_field(name="Price", value=prices, inline=True)
-			embed.set_footer(text="From starbase.auction/livefeed.txt")
+			embed.set_footer(text="From Septic's Google Sheet")
 			await message.channel.send(embed=embed)
 		else:
 			message.channel.send("No prices found :(")
