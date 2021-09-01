@@ -17,7 +17,7 @@ def getPriceList():
 	soup = BeautifulSoup(priceStr, "lxml")
 	tables = soup.find_all("table")
 	formatted = list(list(list(td.text for td in row.find_all("td")) for row in table.find_all("tr")) for table in tables)
-	orePrices = formatted[0][3][33:48]
+	orePrices = formatted[0][3][35:50]
 	return orePrices
 
 @client.event
