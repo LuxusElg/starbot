@@ -34,7 +34,7 @@ async def on_message(message):
 			embed.add_field(name="Ore", value='\n'.join(ore[0] for ore in pList), inline=True)
 			embed.add_field(name="Price", value='\n'.join(ore[1] for ore in pList), inline=True)
 			embed.add_field(name="Available", value='\n'.join(ore[2] for ore in pList), inline=True)
-			embed.add_field(name="% of NPC", value='\n'.join(ore[3] for ore in pList), inline=True)
+			#embed.add_field(name="% of NPC", value='\n'.join(ore[3] for ore in pList), inline=True)
 			embed.set_footer(text="From Septic's Google Sheet")
 			await message.channel.send(embed=embed)
 		else:
