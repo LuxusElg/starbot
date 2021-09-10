@@ -8,7 +8,7 @@ client = discord.Client()
 
 def getPriceList():
 	try:
-		with urllib.request.urlopen('https://docs.google.com/spreadsheets/d/19Ce3veTJyVLm_qoAqV4QWIJNODuXwLbvv2GhGB37Nkg/gviz/tq?tqx=out:csv&sheet=%20') as f:
+		with urllib.request.urlopen('https://docs.google.com/spreadsheets/d/14VROiioAfI-09XdhLWKMwUgc12ZUJZTKkObOKVyF9qY/gviz/tq?tqx=out:csv&sheet=Live%20Ore%20AH') as f:
 			priceStr = f.read().decode('utf-8')
 	except urllib.error.URLError as e:
 		print(e.reason)
@@ -40,4 +40,5 @@ async def on_message(message):
 		else:
 			message.channel.send("No prices found :(")
 
+#print(getPriceList())
 client.run(os.getenv('DISCORD_TOKEN'))
